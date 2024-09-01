@@ -27,10 +27,8 @@ class HomeView extends GetView<HomeController> {
                           backgroundImage:
                               NetworkImage(data[index]['picture']['large']),
                         ),
-                        title: Text(data[index]['name']['title'] +
-                            " " +
-                            data[index]['name']['first'] +
-                            data[index]['last']),
+                        title: Text(
+                            '${data[index]['name']['title']} ${data[index]['name']['first']} ${data[index]['last']}'),
                         subtitle: Text(
                           data[index]['email'],
                           style: const TextStyle(fontSize: 12),
@@ -47,8 +45,10 @@ class HomeView extends GetView<HomeController> {
           onEmpty: const Center(
             child: Text("data is Empty"),
           ),
-          onLoading: const CircularProgressIndicator(
-            color: Colors.white,
+          onLoading: const Center(
+            child: CircularProgressIndicator(
+              color: Colors.white,
+            ),
           )),
     );
   }
